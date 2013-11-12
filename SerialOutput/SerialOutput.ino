@@ -2,13 +2,13 @@
  * SerialOutput sketch
  * Print numbers to the serial port
 */
-int number = 0;
 
 void setup()
 {
   Serial.begin(9600); // send and receive at 9600 baud
 }
 
+int number = 0;
 
 
 void loop()
