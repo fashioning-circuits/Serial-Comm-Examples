@@ -6,10 +6,14 @@
 const int SENSOR = 0; // select the input pin for the
                       // sensor resistor
                       
+const int BUZZER = 3;
+                      
 int val = 0; // variable to store the value coming
              // from the sensor
              
 void setup() {
+  
+  pinMode(BUZZER, OUTPUT);
   
   Serial.begin(9600); // open the serial port to send
                       // data back to the computer at
@@ -21,9 +25,10 @@ void loop() {
   val = analogRead(SENSOR); // read the value from
                             // the sensor
                             
-  Serial.println(val); // print the value to
-                       // the serial port
-                       
-  delay(100); // wait 100ms between
-              // each send
+  if(val < 100) {
+    digitalWrite(BUZZER, HIGH);
+  }
+  else {
+    digitalWrite(BUZZER, LOW);
+  }
 }
